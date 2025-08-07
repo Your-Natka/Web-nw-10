@@ -1,0 +1,12 @@
+<h1>Quotes</h1>
+{% for quote in quotes %}
+    <div>
+        <blockquote>{{ quote.quote }}</blockquote>
+        <p>— {{ quote.author.fullname }}</p>
+        <p>Tags: 
+            {% for tag in quote.tags.all %}
+                <span>{{ tag.name }}</span>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+{% endfor %}
