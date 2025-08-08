@@ -1,0 +1,13 @@
+{% extends 'quotes/base.html' %}
+
+{% block content %}
+  <h1>Top 10 Tags</h1>
+  <ul>
+    {% for tag in tags %}
+      <li>
+        <a href="{% url 'quotes_by_tag' tag.name %}">{{ tag.name }}</a> ({{ tag.num_quotes }} quotes)
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'home' %}">← Back to main</a>
+{% endblock %}

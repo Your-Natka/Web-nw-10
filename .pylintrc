@@ -1,0 +1,5 @@
+[TYPECHECK]
+generated-members=objects
+
+[MASTER]
+load-plugins=pylint_django

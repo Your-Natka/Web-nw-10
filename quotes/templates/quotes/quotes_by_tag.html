@@ -1,0 +1,19 @@
+{% extends 'quotes/base.html' %}
+
+{% block content %}
+  <h1>Quotes tagged with "{{ tag }}"</h1>
+  {% for quote in quotes %}
+    <div>
+        <blockquote>{{ quote.quote }}</blockquote>
+        <p>— <a href="{% url 'author_detail' author_id=quote.author.id %}">{{ quote.author.fullname }}</a></p>
+        <p>Tags:
+            {% for tag in quote.tags.all %}
+                <a href="{% url 'quotes_by_tag' tag.name %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+  {% empty %}
+    <p>No quotes found with this tag.</p>
+  {% endfor %}
+  <a href="{% url 'main' %}">← Back to main</a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<h1>Quotes</h1>
+{% for quote in page_obj %}
+    <div>
+        <blockquote>{{ quote.quote }}</blockquote>
+        <p>— {{ quote.author.fullname }}</p>
+        <p>Tags:
+            {% for tag in quote.tags.all %}
+                <span>{{ tag.name }}</span>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+{% endfor %}
+
+<!-- PAGINATION CONTROLS -->
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+{% endblock %}

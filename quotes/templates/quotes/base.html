@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quotes</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'top_tags' %}">Top Tags</a> |
+    {% if user.is_authenticated %}
+        <a href="{% url 'add_quote' %}">Add Quote</a> |
+        Hello, {{ user.username }} |
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'signup' %}">Sign Up</a> |
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
+
