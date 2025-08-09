@@ -12,7 +12,7 @@ from .forms import QuoteForm
 
 
 def main_view(request):
-    quotes = Quote.objects.all()
+    quotes = Quote.objects.all().order_by('id')
     paginator = Paginator(quotes, 5)  # 5 цитат на сторінку
 
     page_number = request.GET.get("page")
@@ -74,7 +74,6 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'quotes/login.html', {'form': form})
 
-
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    return render(request, 'registration/logged_out.html')
