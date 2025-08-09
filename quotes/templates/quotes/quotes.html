@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Quotes{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Quotes</h1>
+
+{% if quotes %}
+    <div class="row">
+        {% for quote in quotes %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <blockquote class="blockquote">
+                            <p>{{ quote.text }}</p>
+                        </blockquote>
+                        <footer class="blockquote-footer">
+                            {{ quote.author.name }}
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info">No quotes found.</div>
+{% endif %}
+{% endblock %}
