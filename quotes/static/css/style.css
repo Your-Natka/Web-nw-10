@@ -76,3 +76,18 @@ h1 {
 a {
     color: var(--accent-color);
 }
+input {
+    background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+textarea {
+    background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+select {background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
+}
