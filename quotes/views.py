@@ -50,6 +50,9 @@ def quotes_by_tag(request, tag_name):
         'tag': tag_name
     })
 
+def latest_quotes(request):
+    quotes = Quote.objects.order_by('-id')[:5]  # або '-created_at', якщо є поле дати
+    return render(request, 'latest_quotes.html', {'quotes': quotes})
 
 @login_required
 def add_quote(request):

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Останні цитати</title>
+</head>
+<body>
+    <h1>Останні 5 цитат</h1>
+    <ul>
+        {% for quote in quotes %}
+            <li>
+                "{{ quote.text }}" — {{ quote.author.name }}
+            </li>
+        {% empty %}
+            <li>Цитат ще немає</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
